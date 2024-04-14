@@ -28,6 +28,9 @@ import random as rd
 
 
 class RandomPhoneNumber:
+    """
+    Generates a random phone number
+    """
     def __init__(self, country_code: int, number_count: int = 1, phone_length: int = 10):
         self.country_code = country_code
         self.number_count = number_count
@@ -41,12 +44,17 @@ class RandomPhoneNumber:
         param number_count: number of phone numbers
         return: Nothing if phone number is valid, else False
         """
-        if self.country_code <= 0:
-            raise ValueError("Invalid country code. Please provide a positive integer for the country code.")
-        if self.number_count <= 0:
-            raise ValueError("Invalid number count. Please provide a positive integer for the number count.")
-        if self.phone_length <= 0:
-            raise ValueError("Invalid phone length. Please provide a positive integer for the phone length.")
+        try:
+            if self.country_code <= 0:
+                raise ValueError("Invalid country code. Please provide a positive integer for the country code.")
+            if self.number_count <= 0:
+                raise ValueError("Invalid number count. Please provide a positive integer for the number count.")
+            if self.phone_length <= 0:
+                raise ValueError("Invalid phone length. Please provide a positive integer for the phone length.")
+        except ValueError as error:
+            print(error)
+            return False
+        return True
 
     def generate(self):
         """
