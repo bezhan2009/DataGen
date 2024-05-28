@@ -1,7 +1,10 @@
 import random
-import some_str
+
+import str_generator
 from data_gen_errors import errors_for_utils_data
-def random_data(data_type, len=0):
+
+
+def random_data(data_type, length=0):
     if data_type == int:
         negative = random.randint(0, 1)
         if negative:
@@ -13,6 +16,6 @@ def random_data(data_type, len=0):
         return random_int + (random.randint(10, 99) / 100)
     if data_type == 'str':
         if len != 0:
-            some_str.get_some_str(len)
+            str_generator.generate_string(length)
         else:
             errors_for_utils_data.LenNotProvidedError("len data is not provided!!!")
