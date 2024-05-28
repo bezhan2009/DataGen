@@ -28,6 +28,6 @@ def generate_phone_numbers(country_code: int, number_count: int = 1, phone_lengt
 
 
 # # Пример использования:
-# print(generate_phone_numbers(1))  # Генерация 10 случайных номеров с кодом страны 1 (США)
+# print(generate_phone_numbers(1))  # Генерация 1 случайного номера с кодом страны 1 (США)
 # print(generate_phone_numbers(44, 5))  # Генерация 5 случайных номеров с кодом страны 44 (Великобритания)
 # print(generate_phone_numbers(91, 3, 8))  # Генерация 3 случайных номеров с кодом страны 91 (Индия) и длиной номера 8
