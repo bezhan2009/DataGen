@@ -25,6 +25,10 @@ def generate_string(
     :param symbols_list: str: list of symbols to generate string
     :return: str: random string
     """
+    if not isinstance(length, int):
+        raise ValueError("Length must be integer.")
+    elif length < 0:
+        raise ValueError("Length must be positive.")
 
     if symbols_list is None:
         symbols_list = string.ascii_letters + string.digits + string.punctuation
