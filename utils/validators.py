@@ -1,7 +1,7 @@
 from data_gen_errors import errors_for_utils_data
 
 
-def get_data(len_data):
+def length_validator(len_data):
     """
     Validation of data len
     :param len_data:
