@@ -22,3 +22,8 @@ def random_data(
 
         else:
             raise errors_for_utils_data.LenNotProvidedError("Data length is not provided.")
+
+    raise ValueError(
+        "Data type(%s) is not supported.",
+        data_type
+    )
