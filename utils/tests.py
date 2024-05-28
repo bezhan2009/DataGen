@@ -2,6 +2,7 @@ import logging
 import unittest
 
 from utils.json_generator import generate_json
+from utils.url_generate import generate_url
 from .ip_generator import ipv4_generate, ipv6_generate, Ip
 from .random_data import random_data
 from .str_generator import generate_string
@@ -92,6 +93,26 @@ class TestJsonGenerator(unittest.TestCase):
     def test_json_generate_error_type(self):
         with self.assertRaises(ValueError):
             generate_json("10")
+
+
+class TestUrlGenerator(unittest.TestCase):
+    def test_generate_url(self):
+        generated_url = generate_url(15)
+        logging.debug(f"Generated url: {generated_url}")
+        self.assertIsInstance(generated_url, str)
+        self.assertEqual(len(generated_url), 15)
+
+    def test_generate_url_error(self):
+        with self.assertRaises(ValueError):
+            generate_url(-1)
+
+    def test_generate_url_error_type(self):
+        with self.assertRaises(ValueError):
+            generate_url("10")
+
+    def test_generate_url_error_too_short(self):
+        with self.assertRaises(ValueError):
+            generate_url(5)
 
 
 if __name__ == '__main__':
