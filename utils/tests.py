@@ -1,6 +1,9 @@
 import logging
 import unittest
+import uuid
 
+from data_gen_errors import errors_for_utils_data
+from .uuid_generator import generate_uuid
 from .phone_number_generator import generate_phone_numbers
 from datetime import datetime
 from .date_generator import generate_date
@@ -133,6 +136,40 @@ class TestGeneratePhoneNumbers(unittest.TestCase):
     def test_invalid_phone_length(self):
         with self.assertRaises(ValueError):
             generate_phone_numbers(1, 1, -5)
+
+
+class TestGenerateUUID(unittest.TestCase):
+    def test_generate_uuid_v1(self):
+        result = generate_uuid(1)
+        self.assertIsInstance(result, uuid.UUID)
+        self.assertEqual(result.version, 1)
+
+    def test_generate_uuid_v3(self):
+        result = generate_uuid(3, "example.com")
+        self.assertIsInstance(result, uuid.UUID)
+        self.assertEqual(result.version, 3)
+
+    def test_generate_uuid_v4(self):
+        result = generate_uuid(4)
+        self.assertIsInstance(result, uuid.UUID)
+        self.assertEqual(result.version, 4)
+
+    def test_generate_uuid_v5(self):
+        result = generate_uuid(5, "example.com")
+        self.assertIsInstance(result, uuid.UUID)
+        self.assertEqual(result.version, 5)
+
+    def test_invalid_version(self):
+        with self.assertRaises(errors_for_utils_data.UuidError):
+            generate_uuid(0)
+
+    def test_missing_namespace_v3(self):
+        with self.assertRaises(errors_for_utils_data.UuidNameSpaceDNSIsNotProvidedError):
+            generate_uuid(3)
+
+    def test_missing_namespace_v5(self):
+        with self.assertRaises(errors_for_utils_data.UuidNameSpaceDNSIsNotProvidedError):
+            generate_uuid(5)
 
 
 if __name__ == '__main__':
