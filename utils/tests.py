@@ -1,6 +1,7 @@
 import logging
 import unittest
 
+from utils.json_generator import generate_json
 from .ip_generator import ipv4_generate, ipv6_generate, Ip
 from .random_data import random_data
 from .str_generator import generate_string
@@ -75,6 +76,22 @@ class TestIpGenerator(unittest.TestCase):
         logging.debug(f"Generated ipv6: {generated_ipv6}")
         self.assertEqual(generated_ipv6.type, "ipv6")
         self.assertFalse(generated_ipv6.valid())
+
+
+class TestJsonGenerator(unittest.TestCase):
+    def test_json_generate(self):
+        generated_json = generate_json()
+        logging.debug(f"Generated json: {generated_json}")
+        self.assertIsInstance(generated_json, dict)
+        self.assertEqual(len(generated_json), 10)
+
+    def test_json_generate_error(self):
+        with self.assertRaises(ValueError):
+            generate_json(-1)
+
+    def test_json_generate_error_type(self):
+        with self.assertRaises(ValueError):
+            generate_json("10")
 
 
 if __name__ == '__main__':
