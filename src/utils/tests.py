@@ -1,8 +1,8 @@
 import logging
 import unittest
 
-from utils.json_generator import generate_json
-from utils.url_generate import generate_url
+from src.utils.json_generator import generate_json
+from src.utils.url_generate import generate_url, Url
 from .ip_generator import ipv4_generate, ipv6_generate, Ip
 from .random_data import random_data
 from .str_generator import generate_string
@@ -48,9 +48,9 @@ class TestRandomData(unittest.TestCase):
         self.assertIsInstance(generated_str, str)
         self.assertEqual(len(generated_str), 10)
 
-    def test_bool_error(self):
+    def test_data_type_error(self):
         with self.assertRaises(ValueError):
-            random_data(bool)
+            random_data("")
 
 
 class TestIpGenerator(unittest.TestCase):
@@ -99,8 +99,8 @@ class TestUrlGenerator(unittest.TestCase):
     def test_generate_url(self):
         generated_url = generate_url(15)
         logging.debug(f"Generated url: {generated_url}")
-        self.assertIsInstance(generated_url, str)
-        self.assertEqual(len(generated_url), 15)
+        self.assertIsInstance(generated_url, Url)
+        self.assertEqual(len(generated_url.full_address), 15)
 
     def test_generate_url_error(self):
         with self.assertRaises(ValueError):

@@ -1,6 +1,6 @@
 from typing import Dict
 
-from utils import str_generator
+from src.utils import str_generator
 
 
 def generate_json(
