@@ -2,7 +2,7 @@
 
 ### Description
 
-**DataGen** is a library developed by your team for generating random data of various types. It provides simple and convenient methods for creating random strings, numbers, lists, and other data types.
+**DataGen** is a library for generating random data of various types. It provides simple and convenient methods for creating random strings, numbers, lists, and other data types.
 
 ### Key Features
 
