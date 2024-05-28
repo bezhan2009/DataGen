@@ -19,6 +19,14 @@ class TestStringGenerating(unittest.TestCase):
         logging.debug(f"Generated string: {generated_string}")
         self.assertEqual(len(generated_string), 10)
 
+    def test_generate_error(self):
+        with self.assertRaises(ValueError):
+            generate_string(-1)
+
+    def test_generate_error_type(self):
+        with self.assertRaises(ValueError):
+            generate_string("10")
+
 
 class TestRandomData(unittest.TestCase):
     def test_random_data_int(self):
@@ -36,6 +44,10 @@ class TestRandomData(unittest.TestCase):
         logging.debug(f"Generated str: {generated_str}")
         self.assertIsInstance(generated_str, str)
         self.assertEqual(len(generated_str), 10)
+
+    def test_bool_error(self):
+        with self.assertRaises(ValueError):
+            random_data(bool)
 
 
 if __name__ == '__main__':
