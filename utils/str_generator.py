@@ -1,7 +1,6 @@
 import random
 import string
 
-
 # class Name:
 #     def __init__(self, name, surname, age):
 #         self.name = name
@@ -15,10 +14,7 @@ import string
 #         self.nums = nums
 
 
-def generate_string(
-        length: int,
-        symbols_list: str = None
-) -> str:
+def generate_string(length: int, symbols_list: str = None) -> str:
     """
     Get random string
     :param length: int: length of string
@@ -26,7 +22,7 @@ def generate_string(
     :return: str: random string
     """
     if not isinstance(length, int):
-        raise ValueError("Length must be integer.")
+        raise ValueError("Length must be an integer.")
     elif length < 0:
         raise ValueError("Length must be positive.")
 
@@ -37,3 +33,11 @@ def generate_string(
     word = ''.join(word)
 
     return word
+
+
+# Example usage
+try:
+    random_string = generate_string(10)
+    print(random_string)  # Outputs a random string of length 10
+except Exception as e:
+    print(e)
