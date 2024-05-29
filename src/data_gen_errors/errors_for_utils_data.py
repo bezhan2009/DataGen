@@ -1,5 +1,7 @@
 class LenGetError(Exception):
-    """Класс для пользовательской ошибки."""
+    """
+    Класс для пользовательской ошибки.
+    """
     def __init__(self, message):
         super().__init__(message)
         self.message = message

@@ -2,7 +2,7 @@
 
 ### Description
 
-**DataGen** is a library developed by your team for generating random data of various types. It provides simple and convenient methods for creating random strings, numbers, lists, and other data types.
+**DataGen** is a library for generating random data of various types. It provides simple and convenient methods for creating random strings, numbers, lists, and other data types.
 
 ### Key Features
 
@@ -14,22 +14,22 @@
 ### Example Usage
 
 ```python
-import DataGen
+import datagen
 
 # Generating a random string
-random_string = DataGen.generate_string(length=10)
+random_string = datagen.generate_string(length=10)
 
 # Generating a random integer within a range
-random_int = DataGen.generate_integer(min_value=0, max_value=100)
+random_int = datagen.generate_integer(min_value=0, max_value=100)
 
 # Generating a random floating-point number
-random_float = DataGen.generate_float(min_value=0.0, max_value=1.0, precision=2)
+random_float = datagen.generate_float(min_value=0.0, max_value=1.0, precision=2)
 
 # Generating a random list of numbers
-random_list = DataGen.generate_list(length=5, data_type=int, min_value=0, max_value=10)
+random_list = datagen.generate_list(length=5, data_type=int, min_value=0, max_value=10)
 
 # Generating a random list of strings
-random_string_list = DataGen.generate_list(length=3, data_type=str, min_length=3, max_length=5)
+random_string_list = datagen.generate_list(length=3, data_type=str, min_length=3, max_length=5)
 ```
 
 ### Note: The release is scheduled for June 14, 2024.
