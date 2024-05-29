@@ -1,6 +1,6 @@
 import random
 
-from str_generator import generate_string
+from src.generators.string.generator import generate_string
 
 
 def generate_email(real_domain=True):

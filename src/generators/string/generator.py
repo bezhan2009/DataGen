@@ -2,19 +2,6 @@ import random
 import string
 
 
-# class Name:
-#     def __init__(self, name, surname, age):
-#         self.name = name
-#         self.surname = surname
-#         self.age = age
-
-
-# class Data:
-#     def __init__(self, letters, nums):
-#         self.letters = letters
-#         self.nums = nums
-
-
 def generate_string(
         length: int,
         symbols_list: str = None

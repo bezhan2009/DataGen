@@ -2,11 +2,10 @@ import random
 import typing
 from typing import Dict
 
-from src.data_gen_errors import errors_for_utils_data
-from src.utils import str_generator
-from src.utils.ip_generator import Ip, ipv4_generate
-from src.utils.json_generator import generate_json
-from src.utils.url_generate import Url, generate_url
+from src.errors.generator_errors import errors
+from src.generators.ip.generator import Ip, ipv4_generate
+from src.generators.json.generator import generate_json
+from src.generators.url.generator import Url, generate_url
 
 
 def random_data(

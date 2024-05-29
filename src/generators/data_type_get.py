@@ -1,4 +1,4 @@
-from src.data_gen_errors import errors_for_utils_data
+from src.errors.generator_errors import errors
 
 
 def type_get(type_element):
