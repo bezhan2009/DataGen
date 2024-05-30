@@ -22,3 +22,4 @@ def type_get(type_element):
     else:
         return errors.TypeGetError("Unknown data type")
 
+
