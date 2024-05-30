@@ -1,8 +1,7 @@
 import unittest
-
 from datetime import datetime
 from src.errors.generator_errors import errors
-from .generator import generate_date, GeneratedDate
+from src.generators.date.generator import generate_date, GeneratedDate
 
 
 class TestGeneratedDate(unittest.TestCase):
