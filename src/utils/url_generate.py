@@ -1,16 +1,12 @@
 import random
 import string
+import typing
 
 from src.utils import str_generator
 
 
 class Url:
-    def __init__(
-            self,
-            protocol: str,
-            address: str,
-            domain: str
-    ) -> None:
+    def __init__(self, protocol: str, address: str, domain: str) -> None:
         self.protocol: str = protocol
         self.address: str = address
         self.domain: str = domain
