@@ -2,6 +2,7 @@ import random as r
 from datetime import datetime
 
 from src.errors.generator_errors import errors
+from src.generators.date.dataclass import GeneratedDate
 
 
 def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None, minute: int = None,
@@ -15,7 +16,7 @@ def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None,
     :param hour: Hour of the day. If None, it is not included in the output.
     :param minute: Minute of the hour. If None, it is not included in the output.
     :param second: Second of the minute. If None, it is not included in the output.
-    :return: A datetime object with the specified or random values.
+    :return: A GeneratedDate object with the specified or random values.
     """
     if day > 28 and month == 2:
         raise errors.DateGetError("Invalid day for February. Please provide a day between 1 and 28.")
@@ -38,7 +39,7 @@ def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None,
         year = r.randint(1970, 2050)
 
     if hour is None and minute is None and second is None:
-        return datetime(year, month, day)
+        return GeneratedDate(datetime(year, month, day))
     else:
         if hour is None:
             hour = 0
@@ -46,4 +47,4 @@ def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None,
             minute = 0
         if second is None:
             second = 0
-        return datetime(year, month, day, hour, minute, second)
+        return GeneratedDate(datetime(year, month, day, hour, minute, second))

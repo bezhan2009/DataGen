@@ -2,6 +2,7 @@ import unittest
 import logging
 
 from .generator import generate_phone_numbers
+from .dataclass import PhoneNumber
 
 
 class TestGeneratePhoneNumbers(unittest.TestCase):
@@ -9,19 +10,34 @@ class TestGeneratePhoneNumbers(unittest.TestCase):
         numbers = generate_phone_numbers(1)
         logging.debug("Generated phone numbers: %s", numbers)
         self.assertEqual(len(numbers), 1)
-        # self.assertTrue(all(len(num) == 12 for num in numbers))  # 1 (country code) + 10 (number length) + 1 (+ sign)
+        self.assertTrue(all(len(num.number) == 10 for num in numbers))
+        self.assertTrue(all(isinstance(num, PhoneNumber) for num in numbers))
 
     def test_multiple_numbers(self):
         numbers = generate_phone_numbers(44, 5)
         logging.debug("Generated phone numbers: %s", numbers)
         self.assertEqual(len(numbers), 5)
-        # self.assertTrue(all(len(num) == 13 for num in numbers))  # 2 (country code) + 10 (number length) + 1 (+ sign)
+        self.assertTrue(all(len(num.number) == 10 for num in numbers))
+        self.assertTrue(all(isinstance(num, PhoneNumber) for num in numbers))
+
+    def test_full_number(self):
+        phone_number = PhoneNumber(1, '1234567890')
+        self.assertEqual(phone_number.full_number, '+11234567890')
+
+    def test_str_representation(self):
+        phone_number = PhoneNumber(1, '1234567890')
+        self.assertEqual(str(phone_number), '+11234567890')
+
+    def test_repr_representation(self):
+        phone_number = PhoneNumber(1, '1234567890')
+        self.assertEqual(repr(phone_number), "PhoneNumber(country_code=1, number='1234567890')")
 
     def test_custom_length(self):
         numbers = generate_phone_numbers(91, 3, 8)
         logging.debug("Generated phone numbers: %s", numbers)
         self.assertEqual(len(numbers), 3)
-        # self.assertTrue(all(len(num) == 11 for num in numbers))  # 2 (country code) + 8 (number length) + 1 (+ sign)
+        self.assertTrue(all(len(num.number) == 8 for num in numbers))
+        self.assertTrue(all(isinstance(num, PhoneNumber) for num in numbers))
 
     def test_invalid_country_code(self):
         with self.assertRaises(ValueError):
