@@ -26,3 +26,30 @@ class TypeGetError(Exception):
 
     def __str__(self):
         return f"TypeGetError: {self.message}"
+
+
+class DateGetError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+    def __str__(self):
+        return f"DateGetError: {self.message}"
+
+
+class UuidError(Exception):
+    def __init__(self, message):
+        super().__init__(self, message)
+        self.message = message
+
+    def __str__(self):
+        return f"UuidGetError: {self.message}"
+
+
+class UuidNameSpaceDNSIsNotProvidedError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        self.message = message
+
+    def __str__(self):
+        return f"UuidNameSpaceDNSIsNotProvidedError: {self.message}"
