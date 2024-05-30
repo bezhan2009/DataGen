@@ -20,5 +20,6 @@ def type_get(type_element):
         return set
 
     else:
-        return errors_for_utils_data.TypeGetError("Unknown data type")
+        return errors.TypeGetError("Unknown data type")
+
 
