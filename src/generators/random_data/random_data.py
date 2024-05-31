@@ -1,17 +1,18 @@
 import random
 import typing
-from typing import Dict
+from typing import Dict, Any
 
 from src.errors.generator_errors import errors
 from src.generators.ip.generator import Ip, ipv4_generate
 from src.generators.json.generator import generate_json
 from src.generators.url.generator import Url, generate_url
+from src.generators.string.generator import generate_string
 
 
 def random_data(
         data_type: typing.Union[int, float, str],
         length: int = 0
-) -> typing.Union[int, float, str]:
+) -> int | float | str | dict | Any:
     if data_type == int:
         return random.randint(-100, 100)
 
@@ -21,10 +22,10 @@ def random_data(
 
     elif data_type == str:
         if length != 0:
-            return str_generator.generate_string(length)
+            return generate_string(length)
 
         else:
-            raise errors_for_utils_data.LenNotProvidedError("Data length is not provided.")
+            raise errors.LenNotProvidedError("Data length is not provided.")
 
     elif data_type == bool:
         return random.choice([True, False])
