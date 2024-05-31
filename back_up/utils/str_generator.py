@@ -25,6 +25,8 @@ def generate_string(
     :param symbols_list: str: list of symbols to generate string
     :return: str: random string
     """
+    if length > 10000:
+        raise
     if not isinstance(length, int):
         raise ValueError("Length must be integer.")
     elif length < 0:

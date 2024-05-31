@@ -2,6 +2,7 @@ import logging
 import unittest
 
 from src.generators.string.generator import generate_string
+from src.errors.generator_errors.errors import LenStringGetError
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -25,3 +26,11 @@ class TestStringGenerating(unittest.TestCase):
     def test_generate_error_type(self):
         with self.assertRaises(ValueError):
             generate_string("10")
+
+    def test_generate_error_length(self):
+        with self.assertRaises(LenStringGetError):
+            generate_string(1000000000)
+
+
+if __name__ == '__main__':
+    unittest.main()

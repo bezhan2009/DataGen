@@ -1,6 +1,8 @@
 import random
 import string
 
+from src.errors.generator_errors.errors import LenStringGetError
+
 
 def generate_string(
         length: int,
@@ -14,6 +16,8 @@ def generate_string(
     """
     if not isinstance(length, int):
         raise ValueError("Length must be integer.")
+    if length > 100000:
+        raise LenStringGetError("Length cannot be greater than 100000.")
     elif length < 0:
         raise ValueError("Length must be positive.")
 
