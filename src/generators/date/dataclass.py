@@ -1,12 +1,11 @@
 from datetime import datetime
 
 
-class GeneratedDate:
+class Date:
     """
     Represents a generated date and optional time.
 
-    Attributes:
-        date (datetime): The generated date and time.
+    :param date: The generated date.
     """
 
     def __init__(self, date: datetime) -> None:
