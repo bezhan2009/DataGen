@@ -1,6 +1,7 @@
 class Ip:
     """
     Class for ip address
+    :param ip: The ip address
     """
 
     def __init__(self, ip):
