@@ -1,9 +1,8 @@
-class GeneratedEmail:
+class Email:
     """
     Represents a generated email address.
 
-    Attributes:
-        email (str): The generated email address.
+    :param email: The generated email address.
     """
 
     def __init__(self, email: str) -> None:
