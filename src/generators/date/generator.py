@@ -2,11 +2,17 @@ import random as r
 from datetime import datetime
 
 from src.errors.generator_errors import errors
-from src.generators.date.dataclass import GeneratedDate
+from src.generators.date.dataclass import Date
 
 
-def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None, minute: int = None,
-                  second: int = None):
+def generate_date(
+        day: int = 0,
+        month: int = 0,
+        year: int = 0,
+        hour: int = None,
+        minute: int = None,
+        second: int = None
+):
     """
     Generates a random date and optional time.
 
@@ -39,7 +45,7 @@ def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None,
         year = r.randint(1970, 2050)
 
     if hour is None and minute is None and second is None:
-        return GeneratedDate(datetime(year, month, day))
+        return Date(datetime(year, month, day))
     else:
         if hour is None:
             hour = 0
@@ -47,4 +53,4 @@ def generate_date(day: int = 0, month: int = 0, year: int = 0, hour: int = None,
             minute = 0
         if second is None:
             second = 0
-        return GeneratedDate(datetime(year, month, day, hour, minute, second))
+        return Date(datetime(year, month, day, hour, minute, second))

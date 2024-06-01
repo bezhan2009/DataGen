@@ -15,6 +15,10 @@ class Date:
         """Returns the string representation of the generated date."""
         return self.date.isoformat()
 
+    def __len__(self):
+        """Returns the length of the generated date."""
+        return len(self.date)
+
     def __repr__(self) -> str:
         """Returns the official string representation of the generated date."""
         return f"GeneratedDate(date={self.date})"

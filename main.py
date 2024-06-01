@@ -1,4 +1,4 @@
-from src.generators.string.generator import generate_string
+from src.generators.string_gen.generator import generate_string
 from src.generators.date.generator import generate_date
 from src.generators.email.generator import generate_email
 from src.generators.ip.generator import ipv4_generate, ipv6_generate

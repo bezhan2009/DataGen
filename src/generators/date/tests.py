@@ -1,14 +1,14 @@
 import unittest
-from datetime import datetime
+
 from src.errors.generator_errors import errors
-from src.generators.date.generator import generate_date, GeneratedDate
+from src.generators.date.generator import generate_date, Date
 
 
 class TestGeneratedDate(unittest.TestCase):
 
     def test_generate_date_with_defaults(self):
         date_obj = generate_date()
-        self.assertIsInstance(date_obj, GeneratedDate)
+        self.assertIsInstance(date_obj, Date)
         self.assertTrue(1970 <= date_obj.date.year <= 2050)
         self.assertTrue(1 <= date_obj.date.month <= 12)
         self.assertTrue(1 <= date_obj.date.day <= 28)
