@@ -1,9 +1,7 @@
 import random
 import string
-try:
-    from .dataclass import PhoneNumber
-except ImportError:
-    from dataclass import PhoneNumber
+
+from dataclass import PhoneNumber
 
 
 def generate_phone_numbers(country_code: int, number_count: int = 1, phone_length: int = 10) -> list[PhoneNumber]:
@@ -29,7 +27,3 @@ def generate_phone_numbers(country_code: int, number_count: int = 1, phone_lengt
         generated_phone_numbers.append(PhoneNumber(country_code, number))
 
     return generated_phone_numbers
-
-
-print(generate_phone_numbers(country_code=1))
-print(generate_phone_numbers(country_code=1, phone_length=10))
