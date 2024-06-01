@@ -28,15 +28,3 @@ def generate_uuid(version_uuid: int, name_space_dns: str = None) -> uuid.UUID:
         return uuid.uuid3(namespace, name_space_dns) if version_uuid == 3 else uuid.uuid5(namespace, name_space_dns)
 
     return uuid.uuid4()
-
-
-# # Example usage
-# try:
-#     print(generate_uuid(1))
-#     print(generate_uuid(3, "example.com"))
-#     print(generate_uuid(4))
-#     print(generate_uuid(5, "example.com"))
-# except errors_for_utils_data.UuidError as e:
-#     print(e)
-# except errors_for_utils_data.UuidNameSpaceDNSIsNotProvidedError as e:
-#     print(e)
