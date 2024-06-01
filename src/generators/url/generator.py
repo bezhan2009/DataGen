@@ -8,7 +8,7 @@ from src.generators.url.dataclass import Url
 def generate_url(
         length: int,
         protocol: str = "http"
-) -> str:
+) -> Url:
     """
     Generate random url
     :param length: int: length of url
