@@ -1,7 +1,8 @@
 import random
+import string
 
 from dataclass import GeneratedEmail
-from src.generators.email.utils import generate_string_with_digits
+from src.generators.string.generator import generate_string
 
 
 def generate_email(real_domain: bool = True) -> GeneratedEmail:
@@ -12,11 +13,14 @@ def generate_email(real_domain: bool = True) -> GeneratedEmail:
     """
     real_domains = ["gmail.com", "outlook.com", "yahoo.com"]
 
-    local_part = generate_string_with_digits(8, 4)
+    literal_part = generate_string(8, string.ascii_lowercase)
+    number_part = generate_string(4, string.digits)
+    local_part = literal_part + number_part
     if real_domain:
         domain = random.choice(real_domains)
     else:
-        domain = f"{generate_string_with_digits(6, 0)}.{generate_string_with_digits(3, 0)}"
+        domain = (generate_string(6, string.ascii_lowercase)
+                  + generate_string(3, string.ascii_lowercase))
 
     email = f"{local_part}@{domain}"
     return GeneratedEmail(email)
