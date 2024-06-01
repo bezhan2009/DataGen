@@ -26,7 +26,7 @@ def generate_url(
     acceptable_symbols = string.ascii_letters + string.digits
     url = f"{protocol}://"
     protocol = url
-    possible_domains = [".com", ".net", ".org", ".info", ".biz", ".ua", ".de", ".fr", ".it", ".es", ".pl", ]
+    possible_domains = [".com", ".net", ".org", ".info", ".biz", ".ua", ".de", ".fr", ".it", ".es", ".pl", ".git"]
     selected_domain = random.choice(possible_domains)
     domain_length = length - len(url) - len(selected_domain)
     if domain_length < 0:
