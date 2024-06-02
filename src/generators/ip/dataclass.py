@@ -1,6 +1,7 @@
 class Ip:
     """
     Class for ip address
+    :param ip: The ip address
     """
 
     def __init__(self, ip):
@@ -21,6 +22,9 @@ class Ip:
 
     def __str__(self):
         return self.ip
+
+    def __len__(self):
+        return len(self.ip)
 
     def __repr__(self):
         return f"Ip({self.ip})"

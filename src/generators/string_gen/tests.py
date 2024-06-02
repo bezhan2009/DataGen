@@ -1,7 +1,7 @@
 import logging
 import unittest
 
-from src.generators.string.generator import generate_string
+from src.generators.string_gen.generator import generate_string
 from src.errors.generator_errors.errors import LenStringGetError
 
 logging.basicConfig(level=logging.DEBUG)

@@ -1,7 +1,7 @@
 from typing import Dict
 
-from src.generators.string import generator
-from src.generators.string.generator import generate_string
+from src.generators.string_gen import generator
+from src.generators.string_gen.generator import generate_string
 
 
 def generate_json(

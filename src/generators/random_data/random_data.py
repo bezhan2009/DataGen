@@ -3,16 +3,22 @@ import typing
 from typing import Dict, Any
 
 from src.errors.generator_errors import errors
+from src.generators.date.dataclass import Date
+from src.generators.date.generator import generate_date
+from src.generators.email.dataclass import Email
+from src.generators.email.generator import generate_email
 from src.generators.ip.generator import Ip, ipv4_generate
 from src.generators.json.generator import generate_json
+from src.generators.phone_number.dataclass import PhoneNumber
+from src.generators.phone_number.generator import generate_phone_numbers
+from src.generators.string_gen.generator import generate_string
 from src.generators.url.generator import Url, generate_url
-from src.generators.string.generator import generate_string
 
 
 def random_data(
         data_type: typing.Union[int, float, str],
         length: int = 0
-) -> int | float | str | dict | Any:
+) -> Any:
     if data_type == int:
         return random.randint(-100, 100)
 
@@ -39,7 +45,15 @@ def random_data(
     elif data_type == Url:
         return generate_url(length)
 
+    elif data_type == Email:
+        return generate_email(True, length)
+
+    elif data_type == PhoneNumber:
+        return generate_phone_numbers(1)
+
+    elif data_type == Date:
+        return generate_date()
+
     raise ValueError(
-        "Data type(%s) is not supported.",
-        data_type
+        "Data type {} is not supported.".format(data_type)
     )

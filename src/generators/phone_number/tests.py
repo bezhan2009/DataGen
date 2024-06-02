@@ -7,11 +7,10 @@ from .dataclass import PhoneNumber
 
 class TestGeneratePhoneNumbers(unittest.TestCase):
     def test_single_number_default_length(self):
-        numbers = generate_phone_numbers(1)
-        logging.debug("Generated phone numbers: %s", numbers)
-        self.assertEqual(len(numbers), 1)
-        self.assertTrue(all(len(num.number) == 10 for num in numbers))
-        self.assertTrue(all(isinstance(num, PhoneNumber) for num in numbers))
+        number = generate_phone_numbers(1)
+        logging.debug("Generated phone numbers: %s", number)
+        self.assertIsInstance(number, PhoneNumber)
+        self.assertTrue(len(number) == 11)
 
     def test_multiple_numbers(self):
         numbers = generate_phone_numbers(44, 5)
@@ -30,7 +29,7 @@ class TestGeneratePhoneNumbers(unittest.TestCase):
 
     def test_repr_representation(self):
         phone_number = PhoneNumber(1, '1234567890')
-        self.assertEqual(repr(phone_number), "PhoneNumber(country_code=1, number='1234567890')")
+        self.assertEqual(repr(phone_number), "PhoneNumber(country_code=1, number=1234567890)")
 
     def test_custom_length(self):
         numbers = generate_phone_numbers(91, 3, 8)

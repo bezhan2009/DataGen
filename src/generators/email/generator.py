@@ -1,47 +1,43 @@
 import random
+import string
 
-from src.generators.email.utils import generate_string_with_digits
-
-try:
-    from .dataclass import GeneratedEmail
-except ImportError:
-    from dataclass import GeneratedEmail
+from src.generators.email.dataclass import Email
+from src.generators.string_gen.generator import generate_string
 
 
-def generate_email(real_domain=True,
-                   _domain: str = "",
-                   _at: bool = True) -> GeneratedEmail:
+def generate_email(
+        real_domain: bool = True,
+        length: int = 12
+) -> Email:
     """
     Generates a random email address.
-
-    Args:
-        _at: if _at is set to True the generated email will be generated with this symbol "@".
-        _domain: if _domain is empty, it will generate a random domain
-        real_domain (bool): If True, use a real domain from a predefined list.
-                            If False, generate a random domain.
-
-    Returns:
-        GeneratedEmail: An instance of GeneratedEmail containing the generated email.
+    :param real_domain: A boolean flag indicating whether to use real domain names or not.
+    :param length: The length of the local part of the email address.
+    :return: A randomly generated email address.
     """
     real_domains = ["gmail.com", "outlook.com", "yahoo.com"]
 
-    local_part = generate_string_with_digits(8, 4)  # 8 letters followed by 4 digits
-    if _domain != "":
-        if "." in _domain:
-            domain = _domain
-        elif ("." not in _domain) and (_at == False):
-            domain = "." + _domain
-        elif ("." not in _domain) and (_at == True):
-            domain = _domain
-    else:
-        domain = f"{generate_string_with_digits(6, 0)}.{generate_string_with_digits(3, 0)}"
     if real_domain:
         domain = random.choice(real_domains)
-    if _at:
-        email = f"{local_part}@{domain}"
     else:
-        email = f"{local_part}{domain}"
-    return GeneratedEmail(email)
+        domain = (generate_string(6, string.ascii_lowercase)
+                  + "."
+                  + generate_string(3, string.ascii_lowercase))
+
+    local_part_length = length - len(domain) - 1
+
+    if local_part_length < 0:
+        raise ValueError("Local part length must be greater than domain length.")
+
+    literal_part_length = local_part_length // 3
+    number_part_length = local_part_length - literal_part_length
+
+    literal_part = generate_string(literal_part_length, string.ascii_lowercase)
+    number_part = generate_string(number_part_length, string.digits)
+    local_part = literal_part + number_part
+
+    email = f"{local_part}@{domain}"
+    return Email(email)
 
 
 if __name__ == "__main__":

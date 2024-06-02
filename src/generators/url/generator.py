@@ -1,7 +1,7 @@
 import random
 import string
 
-from src.generators.string.generator import generate_string
+from src.generators.string_gen.generator import generate_string
 from src.generators.url.dataclass import Url
 
 

@@ -1,12 +1,14 @@
 import random
 import string
-try:
-    from .dataclass import PhoneNumber
-except ImportError:
-    from dataclass import PhoneNumber
+
+from src.generators.phone_number.dataclass import PhoneNumber
 
 
-def generate_phone_numbers(country_code: int, number_count: int = 1, phone_length: int = 10) -> list[PhoneNumber]:
+def generate_phone_numbers(
+        country_code: int,
+        number_count: int = 1,
+        phone_length: int = 10
+) -> list[PhoneNumber]:
     """
     Generates a list of random phone numbers for a given country code.
 
@@ -27,5 +29,8 @@ def generate_phone_numbers(country_code: int, number_count: int = 1, phone_lengt
     for _ in range(number_count):
         number = ''.join(random.choice(string.digits) for _ in range(phone_length))
         generated_phone_numbers.append(PhoneNumber(country_code, number))
+
+    if number_count == 1:
+        return generated_phone_numbers[0]
 
     return generated_phone_numbers
