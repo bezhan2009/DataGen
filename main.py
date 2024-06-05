@@ -9,7 +9,7 @@ from src.generators.phone_number.generator import generate_phone_numbers
 from src.generators.random_elements.generator import generate_random_elements
 
 
-print(generate_string(10))
+print(generate_string(20))
 print(generate_date(second=50, minute=10, hour=23))
 print(generate_email())
 print(ipv4_generate())
