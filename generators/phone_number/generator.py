@@ -1,7 +1,7 @@
 import random
 import string
 
-from src.generators.phone_number.dataclass import PhoneNumber
+from generators.phone_number.dataclass import PhoneNumber
 
 
 def generate_phone_numbers(

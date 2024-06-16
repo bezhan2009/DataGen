@@ -54,3 +54,32 @@ def generate_date(
         if second is None:
             second = 0
         return Date(datetime(year, month, day, hour, minute, second))
+
+
+def generate_dates(
+        count: int = 1,
+):
+    """
+    Generates a list of dates.
+    Args:
+        count: int default 1
+
+    Returns:
+        list of dates.
+    """
+    is_error = False
+
+    if count > 0:
+        pass
+    else:
+        is_error = True
+
+    if is_error:
+        raise errors.DateGetError("Invalid number of dates.")
+
+    list_of_dates = []
+    for count in range(count):
+        newDate = generate_date()
+        list_of_dates.append(newDate)
+
+    return list_of_dates

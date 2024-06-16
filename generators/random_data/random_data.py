@@ -9,8 +9,8 @@ from src.generators.email.dataclass import Email
 from src.generators.email.generator import generate_email
 from src.generators.ip.generator import Ip, ipv4_generate
 from src.generators.json.generator import generate_json
-from src.generators.phone_number.dataclass import PhoneNumber
-from src.generators.phone_number.generator import generate_phone_numbers
+from generators.phone_number.dataclass import PhoneNumber
+from generators.phone_number import generate_phone_numbers
 from src.generators.string_gen.generator import generate_string
 from src.generators.url.generator import Url, generate_url
 

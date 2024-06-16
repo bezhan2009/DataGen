@@ -4,7 +4,7 @@ import unittest
 from src.generators.date.dataclass import Date
 from src.generators.email.dataclass import Email
 from src.generators.ip.dataclass import Ip
-from src.generators.phone_number.dataclass import PhoneNumber
+from generators.phone_number.dataclass import PhoneNumber
 from src.generators.random_data.random_data import random_data
 from src.generators.url.dataclass import Url
 
