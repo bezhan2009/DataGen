@@ -1,4 +1,4 @@
-from data_gen_errors import errors_for_utils_data
+from src.errors.generator_errors import errors
 
 
 def length_validator(len_data):
