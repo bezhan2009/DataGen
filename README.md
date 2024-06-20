@@ -12,3 +12,4 @@
 - **Support for Various Data Types**: The library supports generating data of various types, making it a versatile tool for testing and creating random data.
 
 This is just a brief overview of DataGen's capabilities. It offers a variety of functions for generating diverse random data, which can be used in various scenarios such as software testing, generating test data, and more.
+
