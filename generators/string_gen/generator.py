@@ -1,18 +1,7 @@
 import random
 import string
 
-
-# class Name:
-#     def __init__(self, name, surname, age):
-#         self.name = name
-#         self.surname = surname
-#         self.age = age
-
-
-# class Data:
-#     def __init__(self, letters, nums):
-#         self.letters = letters
-#         self.nums = nums
+from src.errors.generator_errors.errors import LenStringGetError
 
 
 def generate_string(
@@ -27,6 +16,8 @@ def generate_string(
     """
     if not isinstance(length, int):
         raise ValueError("Length must be integer.")
+    if length > 100000:
+        raise LenStringGetError("Length cannot be greater than 100000.")
     elif length < 0:
         raise ValueError("Length must be positive.")
 
