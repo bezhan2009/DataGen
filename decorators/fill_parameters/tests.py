@@ -1,9 +1,9 @@
 import logging
 import unittest
 
-from fill_params import fill_randomly
-from src.utils.ip_generator import Ip
-from src.utils.url_generate import Url
+from src.decorators.fill_parameters.fill_params import fill_randomly
+from src.generators.ip.generator import Ip
+from src.generators.url.generator import Url
 
 logging.basicConfig(level=logging.DEBUG)
 

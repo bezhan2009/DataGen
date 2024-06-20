@@ -1,7 +1,7 @@
 import inspect
 
-from src.utils.random_data import random_data
-from src.utils.url_generate import Url
+from src.generators.random_data.random_data import random_data
+from src.generators.url.generator import Url
 
 
 def fill_randomly(func):

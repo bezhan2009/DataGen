@@ -1,6 +1,7 @@
 from typing import Dict
 
-from src.utils import str_generator
+from src.generators.string_gen import generator
+from src.generators.string_gen.generator import generate_string
 
 
 def generate_json(
@@ -16,4 +17,4 @@ def generate_json(
     elif elements_number < 0:
         raise ValueError("Elements number must be positive.")
 
-    return {str_generator.generate_string(10): str_generator.generate_string(10) for _ in range(10)}
+    return {generate_string(10): generate_string(10) for _ in range(10)}
